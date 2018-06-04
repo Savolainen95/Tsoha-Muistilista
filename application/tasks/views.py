@@ -15,7 +15,7 @@ def tasks_index():
 def tasks_form():
     return render_template("tasks/new.html", lomake = TehtäväLomake())
 
-@app.route("/tasks/poista/<task_id>/", methods=["POST"])
+@app.route("/tasks/poista/<task_id>", methods=["POST"])
 @login_required
 def tasks_remove(task_id):
     t = Task.query.get(task_id)
