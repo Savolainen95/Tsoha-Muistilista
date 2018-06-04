@@ -1,5 +1,12 @@
 # Muistilista
-[Muistilista verkkosivu](https://tsoha-muistilista-kesa.herokuapp.com/tasks)  &larr; muistilista on käytettävissä tästä linkistä
+[Muistilista verkkosivu](https://tsoha-muistilista-kesa.herokuapp.com)  &larr; muistilista on käytettävissä tästä linkistä
+
+Testausta varten:
+
+Käyttäjä: Tsoha
+
+Salasana: salasana
+
 ## Dokumentaatio
 
 [Aihekuvaus](https://github.com/Savolainen95/Tsoha-Muistilista/blob/master/dokumentaatio/Aihekuvaus.md)
