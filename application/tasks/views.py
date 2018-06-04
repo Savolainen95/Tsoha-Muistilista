@@ -35,7 +35,7 @@ def tasks_create():
         
     t = Task(lomake.nimi.data)
     t.done = lomake.tehty.data
-    t.kayttaja_id = current_user
+    t.kayttaja_id = current_user.id
 
     db.session().add(t)
     db.session().commit()
