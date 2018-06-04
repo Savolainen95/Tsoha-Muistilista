@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{{ error }}
+<form method="POST" action="{{ url_for('auth_login') }}">
+    <table>
+        <tr>
+            <td>
+                {{ lomake.käyttäjänimi.label }}
+            </td>
+            <td>
+                {{ lomake.käyttäjänimi }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ lomake.salasana.label }}
+            </td>
+            <td>
+                {{ lomake.salasana }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Kirjaudu"/>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

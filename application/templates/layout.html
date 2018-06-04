@@ -6,14 +6,21 @@
     </head>
     
     <body>
+      {% if current_user.is_authenticated %}
+      <p>
+        Kirjautunut nimellä {{ current_user.nimi }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+      </p>
+      {% else %}
+      <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+      {% endif %}
       <ul>
-	<li><a href="{{ url_for('tasks_index') }}">Askare lista</a></li>
-	<li><a href="{{ url_for('tasks_form') }}">Lisaa askare</a></li>
+      	<li><a href="{{ url_for('tasks_index') }}">Askare lista</a></li>
+	      <li><a href="{{ url_for('tasks_form') }}">Lisaa askare</a></li>
       </ul>
       
       {% block body %}
       <p>
-	Content.
+	      Content.
       </p>
       {% endblock %}
     </body>
