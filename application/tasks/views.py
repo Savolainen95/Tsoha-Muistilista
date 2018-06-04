@@ -15,15 +15,28 @@ def tasks_index():
 def tasks_form():
     return render_template("tasks/new.html", lomake = TehtäväLomake())
 
+@app.route("/tasks/poista/<task_id>/", methods=["POST"])
+@login_required
+def tasks_remove(task_id):
+    t = Task.query.get(task_id)
+    db.session.delete(t)
+    db.session.commit()
+    return redirect(url_for("tasks_index"))
+
 @app.route("/tasks/<task_id>/", methods=["POST"])
 @login_required
 def tasks_set_done(task_id):
 
     t = Task.query.get(task_id)
-    t.done = True
+    if t.done == True:
+        t.done = False
+    else:
+        t.done = True
     db.session().commit()
   
     return redirect(url_for("tasks_index"))
+
+
 
 @app.route("/tasks/", methods=["POST"])
 @login_required
