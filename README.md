@@ -1,6 +1,8 @@
 # Muistilista
 [Muistilista verkkosivu](https://tsoha-muistilista-kesa.herokuapp.com)  &larr; muistilista on käytettävissä tästä linkistä
 
+(Verkkosivu ei toiminut, mutta saattaa olla, että heroku ei ollut viellä päivittynyt. Kaikki toimi kuitenkin paikallisesti, ja heroku yhteys toimi ennenkin.)
+
 Testausta varten:
 
 Käyttäjä: Tsoha
