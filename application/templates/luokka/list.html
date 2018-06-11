@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>
+                Luokka
+            </th>
+        </tr>
+        {% for luokka in luokat %}
+
+        <tr>
+            <td>
+            {{ luokka.nimi }}
+            </td>
+            <td>
+                <form method="POST" action="{{ url_for('luokka_remove', luokka_id=luokka.id) }}">
+                    <input type="submit" value="Poista!"/>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+{% endblock %}

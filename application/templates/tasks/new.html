@@ -13,11 +13,28 @@
       <td>
         <ul>
           <div style="background-color: bisque">
-          {% for error in lomake.nimi.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </div>
+            {% for error in lomake.nimi.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </div>
         </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ lomake.aikavaatimus.label }}
+      </td>
+      <td>
+        {{ lomake.aikavaatimus }}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        {{ lomake.kiireellisyys.label }}
+      </td>
+      <td>
+        {{ lomake.kiireellisyys }}
       </td>
     </tr>
     <tr>
@@ -30,9 +47,9 @@
     </tr>
     <tr>
       <td colspan="5">
-        <input type="submit" value="Lisää  tämä askare"/>
+        <input type="submit" value="Lisää  tämä askare" />
       </td>
     </tr>
-  </table> 
+  </table>
 </form>
 {% endblock %}

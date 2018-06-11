@@ -1,0 +1,66 @@
+{% extends "layout.html" %} {% block body %}
+<h1>Askare "{{ askare.name }}"</h1>
+<table class="table table-striped table-bordered" style="width:50%">
+    <tbody>
+        <tr>
+            <td>
+                Askare suoritettu:
+            </td>
+            <td>
+                {% if askare.done %}
+                    Kyllä.
+                {% else %}
+                    Ei.
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Kiireellinen:
+            </td>
+            <td>
+                {% if askare.urgent == 1 %}
+                    Ei.
+                {% else %}
+                    Kyllä.
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Aika-arvio:
+            </td>
+            <td>
+                {% if askare.time == 0 %}
+                    Ei määritelty.
+                {% else %}
+                    {{ askare.time }} tuntia
+                {% endif %}
+            </td>
+        </tr>
+            {% if askare.askareen_luokat is defined %}
+        <tr>
+            <td>
+                Luokat:
+            </td>
+            <td>
+                {% for string in askare.askareen_luokat(askare.id) %}
+                <li>
+                    {{ string }}
+                </li>
+                {% endfor %}
+            </td>
+        </tr>
+            {% endif %}
+    </tbody>
+</table>
+
+<form method="POST" action="{{ url_for('tasks_muokkaa', task_id=askare.id) }}">
+    <input type="submit" value="Muokkaa"/>
+</form>
+<form method ="POST" action="{{ url_for('tasks_index') }}">
+    <input type="button" value="Takaisin" onclick="history.back()">
+</form>
+
+
+{% endblock %}

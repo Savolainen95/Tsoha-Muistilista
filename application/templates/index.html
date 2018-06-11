@@ -1,7 +1,23 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <p>
-    Hello world!
-  </p>
+<p>
+  Hello world!
+</p>
+
+{% if tarvitsee_askareen is defined %}
+<p>
+  Seuraavilla käyttäjillä suorittamattomia askareita:
+</p>
+
+<ul>
+  {% for kayttaja in tarvitsee_askareen %}
+  <li>
+    {{kayttaja.nimi}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 {% endblock %}

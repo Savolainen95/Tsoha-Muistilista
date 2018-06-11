@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('luokka_create') }}">
+    <table>
+        <tr>
+            <td>
+            {{ lomake.nimi.label }}
+            </td>
+            <td>
+                {{ lomake.nimi }}
+            </td>
+            <td>
+                <ul>
+                    <div style="background-color: bisque">
+                        {% for error in lomake.nimi.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </div>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Lisää  tämä luokka" />
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
