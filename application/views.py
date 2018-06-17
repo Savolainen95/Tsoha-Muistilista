@@ -4,4 +4,4 @@ from application.auth.models import Käyttäjä
 
 @app.route("/")
 def index():
-    return render_template("index.html", tarvitsee_askareen = Käyttäjä.käyttäjät_ilman_askaretta())
+    return render_template("index.html")

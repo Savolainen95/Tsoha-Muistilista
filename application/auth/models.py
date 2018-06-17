@@ -31,19 +31,6 @@ class Käyttäjä(db.Model):
     def is_authenticated(self):
         return True
     
-    @staticmethod
-    def käyttäjät_ilman_askaretta():
-        stmt = text("SELECT kayttaja.id, kayttaja.nimi FROM kayttaja"
-                    " LEFT JOIN task ON task.kayttaja_id = kayttaja.id"
-                    " WHERE (task.done IS null OR task.done == 1)"
-                    " GROUP BY kayttaja.id"
-                    " HAVING COUNT(task.id) = 0")
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"id":row[0], "nimi":row[1]})
-
-        return response
+    
 
 
