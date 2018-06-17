@@ -1,5 +1,57 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
 <h1> Askareen "{{ askare.name }}" muokkaus. </h1>
+<form method="POST" action="{{ url_for('tasks_muokkaa_hyvaksy', task_id=askare.id) }}">
+<table>
+    <tr>
+        <td>
+            {{ lomake.nimi.label }}
+        </td>
+        <td>
+            {{ lomake.nimi( placeholder = askare.name )}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ lomake.kiireellisyys.label }}
+        </td>
+        <td>
+            {{ lomake.kiireellisyys( placeholder = askare.urgent ) }}
+        </td>
+        <td padding = >
+                &nbsp &nbsp Ei = 1 &nbsp &nbsp Kyllä = 2.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ lomake.aikavaatimus.label }} &nbsp
+        </td>
+        <td>
+            {{ lomake.aikavaatimus( placeholder = askare.time )}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ lomake.tehty.label }}
+        </td>
+        <td>
+            
+            {{ lomake.tehty }}
+        </td>
+        <td>
+            {% if askare.done %}
+            <font color="red"> &nbsp # Huomio #</font> &nbsp (Askare jää tekemättömäksi, jos ei merkata)
+            {% endif %}
+        </td>
+    </tr>
+</table>
+
+    <input type="submit" value="Hyväksy muokkaukset"/>
+</form>
+<form method ="POST" action="{{ url_for('tasks_avaa_yksittainen', task_id=askare.id) }}">
+        <input type="button" value="Takaisin" onclick="history.back()">
+</form>
+
 {% endblock %}

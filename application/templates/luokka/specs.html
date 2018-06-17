@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>Luokka "{{ luokka.nimi }}" tarkastelu</h1>
+<table class="table table-striped table-bordered" style="width:50%"></table>
+    <tbody>
+        <tr>
+            {% if luokka.luokan_askareet is defined %}
+            <td>
+                <b>Luokkaan kuuluvat askareet:</b>
+            </td>
+            <td>
+                {% for string in luokka.luokan_askareet(luokka.id) %}
+                <li>
+                    {{ string }}
+                </li>
+                {% endfor %}
+            </td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<form method="POST" action="{{ url_for('tasks_muokkaa', task_id=luokka.id) }}">
+        <input type="submit" value="Muokkaa"/>
+</form>
+<input type="button" value="Takaisin" onclick="history.back()">
+{% endblock %}

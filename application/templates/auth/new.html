@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('auth_create') }}">
+    <table>
+        <tr>
+            <td>
+                {{ lomake.nimi.label }}
+            </td>
+            <td>
+                {{ lomake.nimi }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ lomake.kayttajanimi.label }}
+            </td>
+            <td>
+                {{ lomake.kayttajanimi }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ lomake.salasana.label }}
+            </td>
+            <td>
+                {{ lomake.salasana }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ lomake.salasana2.label }}
+            </td>
+            <td>
+                {{ lomake.salasana2 }}
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="5">
+                <input type="submit" value="Luo uusi käyttäjä" />
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

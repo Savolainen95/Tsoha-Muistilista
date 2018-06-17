@@ -40,3 +40,9 @@ def luokka_remove(luokka_id):
     db.session.delete(l)
     db.session.commit()
     return redirect(url_for("luokka_index"))
+
+@app.route("/luokka/specs/<luokka_id>/", methods=["POST"])
+@login_required
+def luokka_avaa_yksittainen(luokka_id):
+    l = Luokka.query.get(luokka_id)
+    return render_template("luokka/specs.html", luokka = l)

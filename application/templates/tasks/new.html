@@ -34,7 +34,7 @@
         {{ lomake.kiireellisyys.label }}
       </td>
       <td>
-        {{ lomake.kiireellisyys }}
+        {{ lomake.kiireellisyys( placeholder = "1 = Ei. 2 = Kyllä.") }}
       </td>
     </tr>
     <tr>
@@ -45,6 +45,20 @@
         {{ lomake.tehty }}
       </td>
     </tr>
+    {% if not luokat == 0 %}
+      <tr>
+        <td>
+          <b>Valitse askareelle luokat:</b>
+        </td>
+      </tr>
+    {% endif %}
+    {% for luokka in luokat %}
+      <tr>
+        <td>
+            <input type="checkbox" value= "{{ lista.append(luokka.id)}}"> {{ luokka.nimi }}<br>
+      </td>
+      </tr>
+    {% endfor %}
     <tr>
       <td colspan="5">
         <input type="submit" value="Lisää  tämä askare" />

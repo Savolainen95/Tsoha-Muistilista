@@ -9,7 +9,7 @@
       
     </tr>
     {% for task in tasks %}
-    
+    {% if task.kayttaja_id == id %}
     <tr>
       <td>
         {{ task.name }}
@@ -34,6 +34,7 @@
         </form>
       </td>
     </tr>
+    {% endif %}
     {% endfor %}
   </table>
 {% endblock %}

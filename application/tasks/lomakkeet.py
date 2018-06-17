@@ -16,6 +16,10 @@ class MuokkausLomake(FlaskForm):
     nimi = StringField("Uusi nimi",
     [validators.Length(min=2, max=30,
     message = "Askareen pituuden pitää olla välillä 2-30.")])
-    kiireellisyys = SelectField("Kiireellisyys", 
-    choices = [(1, 'Ei'), (2, 'Kyllä')])
+    kiireellisyys = IntegerField("Kiireellinen")
+    aikavaatimus = IntegerField("Aikavaatimus tunteina")
+    tehty = BooleanField("Onko askare tehty?")
+
+    class Meta:
+        csrf = False
     

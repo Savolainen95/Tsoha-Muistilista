@@ -11,11 +11,14 @@ class Luokka(db.Model):
     nimi = db.Column(db.String(144), nullable=False)
 
     @staticmethod
-    def luokan_askareet():
-        stmt = text('SELECT task.id FROM taskluokka'
-        ' INNER JOIN task ON taskluokka.task_id = task.id '
-        ' INNER JOIN luokka ON taskluokka.luokka_id = luokka.id'
-        ' WHERE luokka.id = ' + id)
-        res = db.engine.execute(stmt)
+    def luokan_askareet(apuid):
+        stmt = text('SELECT task.name FROM taskluokka, task, luokka'
+        ' WHERE taskluokka.luokka_id = ' + str(apuid) +
+        ' AND taskluokka.luokka_id = luokka.id'
+        ' AND taskluokka.task_id = task.id')
 
-        return res
+        res = db.engine.execute(stmt)
+        askareet = []
+        for row in res:
+            askareet.append(row[0])
+        return askareet

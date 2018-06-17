@@ -35,7 +35,7 @@ class Käyttäjä(db.Model):
     def käyttäjät_ilman_askaretta():
         stmt = text("SELECT kayttaja.id, kayttaja.nimi FROM kayttaja"
                     " LEFT JOIN task ON task.kayttaja_id = kayttaja.id"
-                    " WHERE (task.done IS null OR task.done = 1)"
+                    " WHERE (task.done IS null OR task.done == 1)"
                     " GROUP BY kayttaja.id"
                     " HAVING COUNT(task.id) = 0")
         res = db.engine.execute(stmt)

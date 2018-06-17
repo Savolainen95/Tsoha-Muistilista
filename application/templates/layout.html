@@ -37,6 +37,8 @@
         <a href="{{ url_for('auth_logout') }}">Terve {{ current_user.nimi }} -- Kirjaudu ulos</a>
         {% else %}
         <a href="{{ url_for('auth_login') }}">Kirjaudu sisään</a>
+          <font color="white">- tai -</font>
+        <a href="{{ url_for('auth_form') }}">Luo uusi käyttäjä</a>
         {% endif %}
       </div>
     </div>

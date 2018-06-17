@@ -14,6 +14,13 @@
             {{ luokka.nimi }}
             </td>
             <td>
+                <td>
+                    <form method="POST" action="{{ url_for('luokka_avaa_yksittainen', luokka_id=luokka.id) }}">
+                        <input type="submit" value="Avaa yksittäisenä!"/>
+                    </form>
+                </td>
+            </td>
+            <td>
                 <form method="POST" action="{{ url_for('luokka_remove', luokka_id=luokka.id) }}">
                     <input type="submit" value="Poista!"/>
                 </form>
