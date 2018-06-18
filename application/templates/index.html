@@ -1,23 +1,60 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<p>
-  Hello world!
-</p>
+<h1>Mitä haluat tehdä?</h1>
 
-{% if tarvitsee_askareen is defined %}
-<p>
-  Seuraavilla käyttäjillä suorittamattomia askareita:
-</p>
 
-<ul>
-  {% for kayttaja in tarvitsee_askareen %}
-  <li>
-    {{kayttaja.nimi}}
-  </li>
-  {% endfor %}
-</ul>
 
-{% endif %}
+<table sty>
+  <tr>
+    <td>
+      <b>Askare lista:</b>
+    </td>
+    <td>
+      &nbsp &nbsp
+    </td>
+    <td>
+      Askare listasta löydät kaikki sinun askareesi. <br> Sieltä pääset myös tarkastelemaan ja muokkaamaan askareitasi.
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>
+      <b>Lisää askare:</b>
+    </td>
+    <td>
+    </td>
+    <td>
+      Askareen lisäyksessä voit luoda itsellesi uusia askareita.<br> Ne tulevat näkyviin vain sinulle.
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>
+      <b>Luokka lista:</b>
+    </td>
+    <td></td>
+    <td>
+      Luokka listassa näet kaikki luokat. <br> Täältä näet myös muiden käyttäjien tekemät luokat.
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>
+      <b>Lisää luokka:</b>
+    </td>
+    <td></td>
+    <td>
+      Täällä voit luoda uuden luokan.<br> Muista kuitenkin, että luokka tulee kaikille näkyviin.
+    </td>
+  </tr>
+</table>
+
 
 {% endblock %}

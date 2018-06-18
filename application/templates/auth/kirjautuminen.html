@@ -1,15 +1,26 @@
 {% extends "layout.html" %}
 
 {% block body %}
-{{ error }}
 <form method="POST" action="{{ url_for('auth_login') }}">
+    <style>
+    table, td {
+        padding: 3px;
+    }
+    
+    </style>
     <table>
+        <tr>
+            <b>Kirjaudu sisään, tai luo itsellesi käyttäjä käyttäksesi sivua.</b>
+        </tr>
         <tr>
             <td>
                 {{ lomake.käyttäjänimi.label }}
             </td>
             <td>
                 {{ lomake.käyttäjänimi }}
+            </td>
+            <td>
+                &nbsp {{ error }}
             </td>
         </tr>
         <tr>

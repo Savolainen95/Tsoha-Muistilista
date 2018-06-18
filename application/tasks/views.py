@@ -82,12 +82,11 @@ def tasks_set_done(task_id):
 @app.route("/tasks/", methods=["POST"])
 @login_required
 def tasks_create():
-    for int in lista:
-        print(int)
+    
 
     lomake = TehtäväLomake(request.form)
     if not lomake.validate():
-        return render_template("tasks/new.html", lomake = lomake, lista = lista)
+        return render_template("tasks/new.html", lomake = lomake)
         
     t = Task(lomake.nimi.data)
     t.done = lomake.tehty.data

@@ -46,3 +46,9 @@ def luokka_remove(luokka_id):
 def luokka_avaa_yksittainen(luokka_id):
     l = Luokka.query.get(luokka_id)
     return render_template("luokka/specs.html", luokka = l)
+
+@app.route("/luokka/modify/<luokka_id>/", methods=["POST"])
+@login_required
+def luokka_muokkaa(luokka_id):
+    t = Luokka.query.get(luokka_id)
+    return render_template("luokka/modify.html", luokka = t, lomake = LuokkaLomake())

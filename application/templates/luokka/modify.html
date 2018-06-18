@@ -1,0 +1,18 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+
+<h1> Luokan "{{ luokka.nimi }}" muokkaus.</h1>
+<table>
+    <td>
+        {{ lomake.nimi.label }}:
+    </td>
+    <td> &nbsp </td>
+    <td>
+        {{ lomake.nimi( placeholder = luokka.nimi )}}
+    </td>
+</table>
+
+<input type="button" value="Takaisin" onclick="history.back()">
+
+{% endblock %}

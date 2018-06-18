@@ -26,7 +26,7 @@
     </tbody>
 </table>
 
-<form method="POST" action="{{ url_for('tasks_muokkaa', task_id=luokka.id) }}">
+<form method="POST" action="{{ url_for('luokka_muokkaa', luokka_id = luokka.id) }}">
         <input type="submit" value="Muokkaa"/>
 </form>
 <input type="button" value="Takaisin" onclick="history.back()">
