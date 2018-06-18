@@ -1,13 +1,18 @@
 # Muistilista
 [Muistilista verkkosivu](https://tsoha-muistilista-kesa.herokuapp.com)  &larr; muistilista on käytettävissä tästä linkistä
 
-(Verkkosivu ei toiminut, mutta saattaa olla, että heroku ei ollut viellä päivittynyt. Kaikki toimi kuitenkin paikallisesti, ja heroku yhteys toimi ennenkin.)
-
 Testausta varten:
 
 Käyttäjä: Tsoha
 
 Salasana: Salasana
+
+Uuden käyttäjän voi luoda, mutta hänellä ei valmiina askareita, eikä askareiden yhteyksien luomista luokkiin ole saatu viellä toimimaan.
+Luokat ovat kuitenkin kaikille samat.
+
+Viikko 5: Sain lisättyä askareiden lisäys ikkunaan checkit kaikille mahdolisille luokille, mutta formin kanssa lisäys toi haasteita. Ohjauksessa tähän ei löytynyt apua, niin yritän selvittää asiaa. En liittänyt autorisointia osaksi muistilistaani, sillä se ei tuo suuniteltuun ohjelmaani mitään, ja se aiheutti muualla koodissa ongelmia. Kaikki askareet ovat kuitenkin hekilökohtaisia, eivätkä ne ole muille käyttäjille näkyvissä.
+
+Paranneltu myös toiminnallisuutta siellä täällä, ja yritetty saada sivua hieman kauniimman näköistä.
 
 
 
@@ -28,5 +33,8 @@ string = ()
         ' AND taskluokka.luokka_id = luokka.id'
         ' AND taskluokka.task_id = task.id') 
         
-Yllä mainittu kysely palauttaa sivulle tasks/specs/<task.id>/ listan askareeseen liitetyistä luokista. Luokkia ei pysty viellä kuitenkaan selaimen kautta liittämään askareisiin, koska en keksinyt siihen ratkaisua. Käyttäjällä "Tsoha" pitäisi olla kuitenkin askare "tsoha", jolla on luokat "harkkis" ja "työ". Askareella "unelma" on vain luokka työ. (älä testatessasi siis mieluusti poista näitä luokkia ja askareita, että yhteys säilyy).
+Yllä mainittu kysely palauttaa sivulle tasks/specs/<task.id>/ listan askareeseen liitetyistä luokista. 
+Sama on tehty myös toisten päin, eli sivulla luokka/specs/<luokka.is> luokilla on näkyvissä kaikki siihen liitetyt askareet (Oli se sitten jonkin toisen käyttäjän, tai sitten sinun).
+
+
 
