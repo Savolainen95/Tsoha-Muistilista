@@ -1,3 +1,3 @@
-- Olen opiskelija. Haluan, että voin antaa askareilleni tärkeys asteita.
-- Olen opiskelija. Haluan, että askarreni on muilta käyttäjiltä piilossa.
+- Olen opiskelija. Haluan, että voin antaa askareilleni merkin, että onko se kiireellinen.
+- Olen opiskelija. Haluan, että askareeni on muilta käyttäjiltä piilossa.
 - Olen opiskelija ja käyn töissä. Haluan, että voin tarkastella erikseen töihin liittyviä askareita.
