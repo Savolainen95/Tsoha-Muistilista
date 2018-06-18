@@ -26,15 +26,36 @@ Paranneltu myös toiminnallisuutta siellä täällä, ja yritetty saada sivua hi
 
 #### vaativampi yhteenvetokysely ####
 
-string = ()
+def askareen_luokat(apuid):
 
+        string = ()
         stmt = text('SELECT luokka.nimi FROM task, luokka, taskluokka'
         ' WHERE taskluokka.task_id = ' + str(apuid) +
         ' AND taskluokka.luokka_id = luokka.id'
-        ' AND taskluokka.task_id = task.id') 
+        ' AND taskluokka.task_id = task.id')
+
+        res = db.engine.execute(stmt)
+        luokat = []
+        for row in res:
+            luokat.append(row[0])
+        return luokat
         
-Yllä mainittu kysely palauttaa sivulle tasks/specs/<task.id>/ listan askareeseen liitetyistä luokista. 
-Sama on tehty myös toisten päin, eli sivulla luokka/specs/<luokka.is> luokilla on näkyvissä kaikki siihen liitetyt askareet (Oli se sitten jonkin toisen käyttäjän, tai sitten sinun).
+
+def luokan_askareet(apuid):
+
+        stmt = text('SELECT task.name FROM taskluokka, task, luokka'
+        ' WHERE taskluokka.luokka_id = ' + str(apuid) +
+        ' AND taskluokka.luokka_id = luokka.id'
+        ' AND taskluokka.task_id = task.id')
+
+        res = db.engine.execute(stmt)
+        askareet = []
+        for row in res:
+            askareet.append(row[0])
+        return askareet
+        
+Ylempänä mainittu kysely palauttaa sivulle tasks/specs/<task.id>/ listan askareeseen liitetyistä luokista. 
+Sama on tehty myös toisten päin, eli alempi kysely palauttaa sivulle luokka/specs/<luokka.is> luokille kaikki siihen liitetyt askareet.
 
 
 
