@@ -12,7 +12,7 @@ Luokat ovat kuitenkin kaikille samat.
 
 Viikko 5: Sain lisättyä askareiden lisäys ikkunaan checkit kaikille mahdolisille luokille, mutta formin kanssa lisäys toi haasteita. Ohjauksessa tähän ei löytynyt apua, niin yritän selvittää asiaa. En liittänyt autorisointia osaksi muistilistaani, sillä se ei tuo suuniteltuun ohjelmaani mitään, ja se aiheutti muualla koodissa ongelmia. Kaikki askareet ovat kuitenkin hekilökohtaisia, eivätkä ne ole muille käyttäjille näkyvissä.
 
-Paranneltu myös toiminnallisuutta siellä täällä, ja yritetty saada sivua hieman kauniimman näköistä.
+Paranneltu myös toiminnallisuutta siellä täällä, ja yritetty saada sivua hieman kauniimman näköiseksi.
 
 
 
