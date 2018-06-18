@@ -7,13 +7,9 @@ Testausta varten:
 
 Käyttäjä: Tsoha
 
-Salasana: salasana
+Salasana: Salasana
 
-Älä poista testauksessa seuraavia askareita: "tsoha", "unelma"
 
-Älä poista testauksessa seuraavia luokkia: "harkkis", "työ"
-
-Ne ovat esittämässä yhteenvetokyselyä. Voi luoda uusia askareita/luokkia, mitä voi sitten poistella.
 
 ## Dokumentaatio
 
