@@ -83,6 +83,7 @@ def tasks_set_done(task_id):
 @login_required
 def tasks_create():
     
+    
 
     lomake = TehtäväLomake(request.form)
     if not lomake.validate():
@@ -95,6 +96,8 @@ def tasks_create():
     t.time = lomake.aikavaatimus.data
 
     t.kayttaja_id = current_user.id
+
+    
 
 
     db.session().add(t)

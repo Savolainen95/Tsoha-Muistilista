@@ -6,12 +6,13 @@
   <title>Muistilista</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+  
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-danger mb-4">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="navbar-brand" href="#">Muistilista</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -20,25 +21,27 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('tasks_index') }} ">Askare lista</a>
+          <a class="nav-link" href="{{ url_for('tasks_index') }} "><font color="orange">Sinun askareesi</font> </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('tasks_form') }} ">Lisää askare</a>
+          <a class="nav-link" href="{{ url_for('tasks_form') }} "><font color="orange">Luo askare</font></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('luokka_index') }} ">Luokka lista</a>
+          <a class="nav-link" href="{{ url_for('luokka_index') }} "><font color="orange">Luokka lista</font></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('luokka_form') }} ">Lisää luokka</a>
+          <a class="nav-link" href="{{ url_for('luokka_form') }} "><font color="orange">Lisää luokka</font></a>
         </li>
       </ul>
       <div class="form-inline mt-2 mt-md-0">
         {% if current_user.is_authenticated %}
-        <a href="{{ url_for('auth_logout') }}">Terve {{ current_user.nimi }} -- Kirjaudu ulos</a>
+        <a href="{{ url_for('auth_logout') }}"><font color="orange">Terve {{ current_user.nimi }} -- Kirjaudu ulos</font></a>
         {% else %}
-        <a href="{{ url_for('auth_login') }}">Kirjaudu sisään</a>
+        <a href="{{ url_for('auth_login') }}"><font color="orange">Kirjaudu sisään</font>
+          <span class="glyphicon glyphicon-name"></span>
+        </a>
           <font color="white">- tai -</font>
-        <a href="{{ url_for('auth_form') }}">Luo uusi käyttäjä</a>
+        <a href="{{ url_for('auth_form') }}"><font color="orange">Luo uusi käyttäjä</font></a>
         {% endif %}
       </div>
     </div>
