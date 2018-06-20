@@ -1,19 +1,20 @@
 # Muistilista
 [Muistilista verkkosivu](https://tsoha-muistilista-kesa.herokuapp.com)  &larr; muistilista on käytettävissä tästä linkistä
 
-(Verkkosivu ei toiminut, mutta saattaa olla, että heroku ei ollut viellä päivittynyt. Kaikki toimi kuitenkin paikallisesti, ja heroku yhteys toimi ennenkin.)
-
 Testausta varten:
 
 Käyttäjä: Tsoha
 
-Salasana: salasana
+Salasana: Salasana
 
-Älä poista testauksessa seuraavia askareita: "tsoha", "unelma"
+Uuden käyttäjän voi luoda, mutta hänellä ei valmiina askareita, eikä askareiden yhteyksien luomista luokkiin ole saatu viellä toimimaan.
+Luokat ovat kuitenkin kaikille samat.
 
-Älä poista testauksessa seuraavia luokkia: "harkkis", "työ"
+Viikko 5: Sain lisättyä askareiden lisäys ikkunaan checkit kaikille mahdolisille luokille, mutta formin kanssa lisäys toi haasteita. Ohjauksessa tähän ei löytynyt apua, niin yritän selvittää asiaa. En liittänyt autorisointia osaksi muistilistaani, sillä se ei tuo suuniteltuun ohjelmaani mitään, ja se aiheutti muualla koodissa ongelmia. Kaikki askareet ovat kuitenkin hekilökohtaisia, eivätkä ne ole muille käyttäjille näkyvissä.
 
-Ne ovat esittämässä yhteenvetokyselyä. Voi luoda uusia askareita/luokkia, mitä voi sitten poistella.
+Paranneltu myös toiminnallisuutta siellä täällä, ja yritetty saada sivua hieman kauniimman näköiseksi.
+
+
 
 ## Dokumentaatio
 
@@ -25,12 +26,36 @@ Ne ovat esittämässä yhteenvetokyselyä. Voi luoda uusia askareita/luokkia, mi
 
 #### vaativampi yhteenvetokysely ####
 
-string = ()
+def askareen_luokat(apuid):
 
+        string = ()
         stmt = text('SELECT luokka.nimi FROM task, luokka, taskluokka'
         ' WHERE taskluokka.task_id = ' + str(apuid) +
         ' AND taskluokka.luokka_id = luokka.id'
-        ' AND taskluokka.task_id = task.id') 
+        ' AND taskluokka.task_id = task.id')
+
+        res = db.engine.execute(stmt)
+        luokat = []
+        for row in res:
+            luokat.append(row[0])
+        return luokat
         
-Yllä mainittu kysely palauttaa sivulle tasks/specs/<task.id>/ listan askareeseen liitetyistä luokista. Luokkia ei pysty viellä kuitenkaan selaimen kautta liittämään askareisiin, koska en keksinyt siihen ratkaisua. Käyttäjällä "Tsoha" pitäisi olla kuitenkin askare "tsoha", jolla on luokat "harkkis" ja "työ". Askareella "unelma" on vain luokka työ. (älä testatessasi siis mieluusti poista näitä luokkia ja askareita, että yhteys säilyy).
+
+def luokan_askareet(apuid):
+
+        stmt = text('SELECT task.name FROM taskluokka, task, luokka'
+        ' WHERE taskluokka.luokka_id = ' + str(apuid) +
+        ' AND taskluokka.luokka_id = luokka.id'
+        ' AND taskluokka.task_id = task.id')
+
+        res = db.engine.execute(stmt)
+        askareet = []
+        for row in res:
+            askareet.append(row[0])
+        return askareet
+        
+Ylempänä mainittu kysely palauttaa sivulle tasks/specs/<task.id>/ listan askareeseen liitetyistä luokista. 
+Sama on tehty myös toisten päin, eli alempi kysely palauttaa sivulle luokka/specs/<luokka.is> luokille kaikki siihen liitetyt askareet.
+
+
 
