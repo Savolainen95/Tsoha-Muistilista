@@ -2,17 +2,17 @@
 
 {% block body %}
 
-<h1> Luokan "{{ luokka.nimi }}" muokkaus.</h1>
+<h1> Luokan "<font color= "orange">{{ luokka.nimi }}</font>" muokkaus.</h1>
 <table>
     <td>
         {{ lomake.nimi.label }}:
     </td>
     <td> &nbsp </td>
     <td>
-        {{ lomake.nimi( placeholder = luokka.nimi )}}
+        {{ lomake.nimi( value = luokka.nimi )}}
     </td>
 </table>
 
-<input type="button" value="Takaisin" onclick="history.back()">
+<input class="btn btn-warning" type="button" value="Takaisin" onclick="history.back()">
 
 {% endblock %}

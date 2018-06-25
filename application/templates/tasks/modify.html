@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<h1> Askareen "{{ askare.name }}" muokkaus. </h1>
+<h1> Askareen "<font color="orange">{{ askare.name }}</font>" muokkaus. </h1>
 <form method="POST" action="{{ url_for('tasks_muokkaa_hyvaksy', task_id=askare.id) }}">
 <table>
     <tr>
@@ -10,7 +10,7 @@
             {{ lomake.nimi.label }}
         </td>
         <td>
-            {{ lomake.nimi( placeholder = askare.name )}}
+            {{ lomake.nimi( value = askare.name )}}
         </td>
     </tr>
     <tr>
@@ -18,7 +18,7 @@
             {{ lomake.kiireellisyys.label }}
         </td>
         <td>
-            {{ lomake.kiireellisyys( placeholder = askare.urgent ) }}
+            {{ lomake.kiireellisyys( value = askare.urgent ) }}
         </td>
         <td padding = >
                 &nbsp &nbsp Ei = 1 &nbsp &nbsp Kyllä = 2.
@@ -29,7 +29,7 @@
             {{ lomake.aikavaatimus.label }} &nbsp
         </td>
         <td>
-            {{ lomake.aikavaatimus( placeholder = askare.time )}}
+            {{ lomake.aikavaatimus( value = askare.time )}}
         </td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@
     </tr>
 </table>
 
-    <input type="submit" value="Hyväksy muokkaukset"/>
+    <input class="btn btn-warning" type="submit" value="Hyväksy"/>
 </form>
 <form method ="POST" action="{{ url_for('tasks_avaa_yksittainen', task_id=askare.id) }}">
         <input type="button" value="Takaisin" onclick="history.back()">

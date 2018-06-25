@@ -22,9 +22,11 @@ class Task(db.Model):
     kayttaja_id = db.Column(db.Integer, db.ForeignKey('kayttaja.id'),
                            nullable=False)
 
-    def __init__(self, name):
+    def __init__(self, name, apu):
         self.name = name
         self.done = False
+        self.apu = apu
+
 
     @staticmethod
     def askareen_luokat(apuid):
@@ -40,6 +42,8 @@ class Task(db.Model):
         for row in res:
             luokat.append(row[0])
         return luokat
+
+   
 
 
 

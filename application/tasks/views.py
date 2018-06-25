@@ -18,7 +18,10 @@ def tasks_index():
 @app.route("/tasks/new/")
 @login_required
 def tasks_form():
-    return render_template("tasks/new.html", lomake = TehtäväLomake(), luokat = Luokka.query.all(), lista = [])
+    luokat = [(l.id, l.nimi) for l in Luokka.query.all()]
+    form = TehtäväLomake()
+    form.apu.choices = luokat
+    return render_template("tasks/new.html", lomake = form)
 
 @app.route("/tasks/specs/<task_id>/", methods=["POST"])
 @login_required
@@ -86,10 +89,12 @@ def tasks_create():
     
 
     lomake = TehtäväLomake(request.form)
+    lomake.apu.choices = [(l.id, l.nimi) for l in Luokka.query.all()]
+
     if not lomake.validate():
         return render_template("tasks/new.html", lomake = lomake)
         
-    t = Task(lomake.nimi.data)
+    t = Task(lomake.nimi.data, Luokka.all_by_id(lomake.apu.data))
     t.done = lomake.tehty.data
     
     t.urgent = lomake.kiireellisyys.data

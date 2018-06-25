@@ -56,10 +56,10 @@
 </table>
 
 <form method="POST" action="{{ url_for('tasks_muokkaa', task_id=askare.id) }}">
-    <input type="submit" value="Muokkaa"/>
+    <input class="btn btn-warning" type="submit" value="Muokkaa"/>
 </form>
 <form method ="POST" action="{{ url_for('tasks_index') }}">
-    <input type="button" value="Takaisin" onclick="history.back()">
+    <input class="btn btn-warning" type="button" value="Takaisin" onclick="history.back()">
 </form>
 
 

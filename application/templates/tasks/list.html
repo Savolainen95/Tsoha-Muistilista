@@ -25,12 +25,12 @@
       </td>
       <td>
       	<form method="POST" action="{{ url_for('tasks_avaa_yksittainen', task_id=task.id) }}">
-	        <input type="submit" value="Avaa yksittäisenä!"/>
+	        <input class="btn btn-warning" type="submit" value="Tarkastele"/>
 	      </form>
       </td>
       <td>
         <form method="POST" action="{{ url_for('tasks_remove', task_id=task.id) }}">
-          <input type="submit" value="Poista!"/>
+          <input class="btn btn-warning" type="submit" value="Poista"/>
         </form>
       </td>
     </tr>

@@ -22,3 +22,13 @@ class Luokka(db.Model):
         for row in res:
             askareet.append(row[0])
         return askareet
+
+    @staticmethod
+    def all_by_id(ids):
+        ret = []
+        for c in db.session().query(Luokka).filter(Luokka.id.in_(ids)):
+            print(c)
+            ret.append(c)
+        return ret
+
+    

@@ -5,7 +5,7 @@
   <table>
     <tr>
       <td>
-        {{ lomake.nimi.label }}
+        {{ lomake.nimi.label }} 
       </td>
       <td>
         {{ lomake.nimi }}
@@ -45,23 +45,22 @@
         {{ lomake.tehty }}
       </td>
     </tr>
-    {% if not luokat == 0 %}
+    
       <tr>
         <td>
-          <b>Valitse askareelle luokat:</b>
+          <b>{{ lomake.apu.label }}: </b>
         </td>
       </tr>
-    {% endif %}
-    {% for luokka in luokat %}
       <tr>
         <td>
-            <input type="checkbox" value= "{{ lista.append(luokka.id) }}"> {{ luokka.nimi }}<br>
-      </td>
+          <ul> 
+            {{ lomake.apu }}
+          </ul>
+        </td>
       </tr>
-    {% endfor %}
     <tr>
       <td colspan="5">
-        <input type="submit" value="Lisää  tämä askare" />
+        <input class="btn btn-warning" type="submit" value="Luo askare" />
       </td>
     </tr>
   </table>
